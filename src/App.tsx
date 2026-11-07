@@ -7,6 +7,7 @@ export default function App() {
     <main className="w-full">
       <SearchBar />
       <Results />
+
       <Map />
     </main>
   );
