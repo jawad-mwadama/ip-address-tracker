@@ -4,8 +4,8 @@ import searchArrow from "../../assets/images/icon-arrow.svg";
 
 export default function SearchBar() {
   return (
-    <div className="relative h-64 w-full">
-      <h3 className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-rubik text-xl font-semibold tracking-wide text-white sm:text-2xl md:text-3xl">
+    <div className="relative h-40 w-full md:h-64">
+      <h3 className="text-md absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-rubik font-semibold tracking-wide text-white sm:text-2xl md:text-3xl">
         Ip Address Tracker
       </h3>
       <img
