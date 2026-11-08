@@ -1,6 +1,6 @@
 export default function Results() {
   return (
-    <div className="absolute top-[40%] left-1/2 w-xs -translate-x-1/2 -translate-y-1/2 rounded-lg border border-red-500 bg-white sm:top-[32%] sm:w-2xl md:w-3xl">
+    <div className="absolute top-[40%] left-1/2 z-10 w-xs -translate-x-1/2 -translate-y-1/2 rounded-lg border border-red-500 bg-white sm:top-[32%] sm:w-2xl md:w-3xl">
       <div className="flex flex-col gap-4 p-4 sm:p-8 md:flex-row">
         <div className="border-black/20 pr-4 md:border-r-2">
           <span className="text-xs font-bold tracking-wider text-slate-300 md:text-sm">
