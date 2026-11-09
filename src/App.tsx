@@ -59,14 +59,9 @@ export default function App() {
 
   return (
     <main className="w-full">
-      <SearchBar />
-      <Results />
-      <Map />
+      <SearchBar onSearch={setAddress} />
+      <Results address={address} />
+      <Map address={address} />
     </main>
   );
 }
-
-// async function fetchLocation() {
-//   const data = await getGeolocation("8.8.8.8");
-//   console.log(data);
-// }

@@ -1,4 +1,8 @@
-export default function Results() {
+type Props = {
+  address: LocationData | null;
+};
+
+export default function Results({ address }: Props) {
   return (
     <div className="absolute top-[40%] left-1/2 z-10 w-xs -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white sm:top-[32%] sm:w-2xl md:w-3xl">
       <div className="flex flex-col gap-4 p-2.5 text-center sm:p-8 md:flex-row md:text-start">
@@ -13,7 +17,7 @@ export default function Results() {
           <span className="text-xs font-bold tracking-wider text-slate-300 md:text-sm">
             Location
           </span>
-          <h3 className="pt-2 text-xl font-bold">Brooklyn, Ny, 101</h3>
+          <h3 className="pt-2 text-xl font-bold">{address?.location.city}</h3>
         </div>
 
         <div className="border-black/20 pr-4 md:border-r-2">

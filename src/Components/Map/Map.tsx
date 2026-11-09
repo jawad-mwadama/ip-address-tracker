@@ -2,6 +2,10 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef } from "react";
 
+type Props = {
+  address: LocationData | null;
+};
+
 export default function Map() {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
