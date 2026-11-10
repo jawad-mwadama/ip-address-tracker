@@ -1,19 +1,22 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useRef } from "react";
+import { use, useEffect, useRef } from "react";
 
 type Props = {
   address: LocationData | null;
 };
 
-export default function Map() {
-  const mapRef = useRef<HTMLDivElement | null>(null);
+export default function Map({ address }: Props) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const markerRef = useRef<L.Marker | null>(null);
 
+  // 1) Initialize the map
   useEffect(() => {
-    if (!mapRef.current) return;
-    // Initialize the map
-    const map = L.map(mapRef.current).setView([51.505, -0.09], 13);
+    if (!containerRef.current) return;
+    const map = L.map(containerRef.current).setView([51.505, -0.09], 13);
 
+    mapRef.current = map;
     // Add OpenStreetMap tiles
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -21,21 +24,31 @@ export default function Map() {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
 
+    const marker = L.marker([51.505, -0.09]);
     // Add a marker
-    L.marker([51.505, -0.09])
-      .addTo(map)
-      .bindPopup("Welcome to London")
-      .openPopup();
+    markerRef.current = marker;
 
     // Cleanup
     return () => {
       map.remove();
+      mapRef.current = null;
+      markerRef.current = null;
     };
   }, []);
 
+  //2) Update map when address changes
+  useEffect(() => {
+    if (!address || mapRef.current || markerRef.current) return;
+
+    const latitude = address.location.lat;
+    const longitude = address.location.lon;
+
+    mapRef.current.setView([latitude, longitude], 13);
+    markerRef.current.setLatLng([latitude, longitude]);
+  }, [address]);
   return (
     <div
-      ref={mapRef}
+      ref={containerRef}
       style={{
         height: "550px",
         width: "100%",

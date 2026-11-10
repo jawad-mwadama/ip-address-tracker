@@ -12,6 +12,7 @@ export default function SearchBar({ onSearch }: Props) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!ipAddress) return;
     onSearch(ipAddress.trim());
   };
 
@@ -32,7 +33,7 @@ export default function SearchBar({ onSearch }: Props) {
       <div className="absolute top-2/4 left-1/2 flex -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white">
         <form
           action=""
-          className="w-64 rounded-lg bg-white px-4 py-3 md:w-96"
+          className="flex w-64 rounded-lg bg-white px-4 py-3 md:w-96"
           onSubmit={handleSubmit}
         >
           <input
@@ -44,13 +45,14 @@ export default function SearchBar({ onSearch }: Props) {
             placeholder="Search for any IP address or place"
             className="w-full whitespace-nowrap outline-none"
           />
+
+          <button
+            className="hover rounded-lg bg-black px-4 py-3 hover:cursor-pointer"
+            type="submit"
+          >
+            <img src={searchArrow} alt="search" />
+          </button>
         </form>
-        <button
-          className="hover rounded-lg bg-black px-4 py-3 hover:cursor-pointer"
-          type="submit"
-        >
-          <img src={searchArrow} alt="search" />
-        </button>
       </div>
     </div>
   );

@@ -10,14 +10,17 @@ export default function Results({ address }: Props) {
           <span className="text-xs font-bold tracking-wider text-slate-300 md:text-sm">
             Ip Address
           </span>
-          <h3 className="pt-2 text-xl font-bold">192.212.174.101</h3>
+          <h3 className="pt-2 text-xl font-bold">{address?.ip ?? "-"}</h3>
         </div>
 
         <div className="border-black/20 pr-4 md:border-r-2">
           <span className="text-xs font-bold tracking-wider text-slate-300 md:text-sm">
             Location
           </span>
-          <h3 className="pt-2 text-xl font-bold">{address?.location.city}</h3>
+          <h3 className="pt-2 text-xl font-bold">
+            // learn more about ts fallbacks
+            {address ? `${address.location.city}` : "-"}
+          </h3>
         </div>
 
         <div className="border-black/20 pr-4 md:border-r-2">
