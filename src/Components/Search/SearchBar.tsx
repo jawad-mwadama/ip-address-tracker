@@ -33,7 +33,7 @@ export default function SearchBar({ onSearch }: Props) {
       </picture>
 
       <div className="absolute inset-0 flex flex-col items-center gap-6 pt-6">
-        <h1 className="text-2xl font-medium text-white md:text-3xl">
+        <h1 className="text-2xl font-bold text-white md:text-3xl">
           IP Address Tracker
         </h1>
 

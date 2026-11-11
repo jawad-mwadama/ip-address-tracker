@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-
+import type { LocationData } from "./types/location";
 import { getGeolocation } from "./utils/apiGeolocation";
+
 import Map from "./components/Map/Map";
 import Results from "./components/Results/Results";
 import SearchBar from "./components/Search/SearchBar";
-
-import type { LocationData } from "./types/location";
 
 export default function App() {
   const [ipAddress, setIpAddress] = useState("");
@@ -46,7 +45,7 @@ export default function App() {
   }, [ipAddress]);
 
   return (
-    <main className="relative inset-0 w-full">
+    <main className="relative inset-0 w-full overflow-hidden">
       <SearchBar onSearch={setIpAddress} />
 
       {loading && <p className="text-center">Updating location...</p>}
