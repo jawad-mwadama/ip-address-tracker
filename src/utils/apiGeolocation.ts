@@ -5,7 +5,7 @@ export async function getGeolocation(
   signal?: AbortSignal,
 ): Promise<LocationData> {
   const res = await fetch(
-    "https://geo.ipify.org/api/v2/country,city?apiKey=at_s6FkgMWTQvbjFjsy5nWRASLoLhijO&ipAddress=1.1.1.1",
+    `https://geo.ipify.org/api/v2/country,city?apiKey=at_s6FkgMWTQvbjFjsy5nWRASLoLhijO&ipAddress=${ipAddress}`,
     { signal },
   );
 

@@ -15,7 +15,6 @@ export default function SearchBar({ onSearch }: Props) {
     e.preventDefault();
 
     const ip = ipAddress.trim();
-
     if (!ip) return;
 
     onSearch(ip);

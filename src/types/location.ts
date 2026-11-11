@@ -1,5 +1,6 @@
 export type LocationData = {
   ip: string;
+  isp: string;
   location: {
     country: string;
     region: string;
@@ -8,5 +9,4 @@ export type LocationData = {
     lat: number;
     lng: number;
   };
-  isp: string;
 };

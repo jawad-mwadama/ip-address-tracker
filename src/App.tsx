@@ -8,7 +8,7 @@ import SearchBar from "./components/Search/SearchBar";
 import type { LocationData } from "./types/location";
 
 export default function App() {
-  const [ipAddress, setIpAddress] = useState("8.8.8.8");
+  const [ipAddress, setIpAddress] = useState("");
 
   const [address, setAddress] = useState<LocationData | null>(null);
 
@@ -27,6 +27,8 @@ export default function App() {
         const data = await getGeolocation(ipAddress, controller.signal);
 
         setAddress(data);
+
+        // console.log(data);
       } catch (err) {
         if (err instanceof Error && err.name !== "AbortError") {
           setError(err.message);
@@ -44,7 +46,7 @@ export default function App() {
   }, [ipAddress]);
 
   return (
-    <main className="w-full">
+    <main className="relative inset-0 w-full">
       <SearchBar onSearch={setIpAddress} />
 
       {loading && <p className="text-center">Updating location...</p>}
