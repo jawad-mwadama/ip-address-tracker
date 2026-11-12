@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import type { LocationData } from "./types/location";
 import { getGeolocation } from "./utils/apiGeolocation";
 
-import Map from "./components/Map/Map";
-import Results from "./components/Results/Results";
-import SearchBar from "./components/Search/SearchBar";
+import Map from "./Components/Map/Map";
+import Results from "./Components/Results/Results";
+import SearchBar from "./Components/Search/SearchBar";
 
 export default function App() {
   const [ipAddress, setIpAddress] = useState("");
