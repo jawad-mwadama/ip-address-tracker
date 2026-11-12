@@ -56,7 +56,7 @@ export default function App() {
 
       <p className="absolute text-center text-red-500">Error: {error}</p>
 
-      {ipAddress.length > 2 && <Results address={address} />}
+      <Results address={address} />
 
       <Map address={address} />
     </main>
