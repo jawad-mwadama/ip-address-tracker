@@ -46,13 +46,17 @@ export default function App() {
 
   return (
     <main className="relative inset-0 w-full overflow-hidden">
-      <SearchBar onSearch={setIpAddress} />
+      <SearchBar
+        onSearch={setIpAddress}
+        ipAddress={ipAddress}
+        setIpAddress={setIpAddress}
+      />
 
-      {loading && <p className="text-center">Updating location...</p>}
+      {loading && <p className="absolute text-center">Updating location...</p>}
 
-      {error && <p className="text-center text-red-500">Error: {error}</p>}
+      <p className="absolute text-center text-red-500">Error: {error}</p>
 
-      <Results address={address} />
+      {ipAddress.length > 2 && <Results address={address} />}
 
       <Map address={address} />
     </main>

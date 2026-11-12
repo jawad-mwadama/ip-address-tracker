@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 
 import desktopBg from "../../assets/images/pattern-bg-desktop.png";
 import mobileBg from "../../assets/images/pattern-bg-mobile.png";
@@ -6,11 +6,15 @@ import searchArrow from "../../assets/images/icon-arrow.svg";
 
 type Props = {
   onSearch: (ip: string) => void;
+  ipAddress: string;
+  setIpAddress: Dispatch<SetStateAction<string>>;
 };
 
-export default function SearchBar({ onSearch }: Props) {
-  const [ipAddress, setIpAddress] = useState("");
-
+export default function SearchBar({
+  onSearch,
+  ipAddress,
+  setIpAddress,
+}: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -18,6 +22,8 @@ export default function SearchBar({ onSearch }: Props) {
     if (!ip) return;
 
     onSearch(ip);
+
+    setIpAddress("");
   };
 
   return (
