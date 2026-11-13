@@ -26,8 +26,6 @@ export default function App() {
         const data = await getGeolocation(ipAddress, controller.signal);
 
         setAddress(data);
-
-        // console.log(data);
       } catch (err) {
         if (err instanceof Error && err.name !== "AbortError") {
           setError(err.message);

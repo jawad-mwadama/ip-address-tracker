@@ -21,9 +21,8 @@ export default function SearchBar({
     const ip = ipAddress.trim();
     if (!ip) return;
 
-    onSearch(ip);
-
     setIpAddress("");
+    onSearch(ip);
   };
 
   return (
